@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "cart_items")
@@ -29,5 +30,23 @@ public class CartItem {
     @Column(name = "last_update")
     @UpdateTimestamp
     private Date last_update;
+
+    //DB Relationships
+
+    @ManyToOne
+    @JoinColumn(name = "cart_id", nullable = false)
+    private Cart cart;
+
+    @ManyToOne
+    @JoinColumn(name = "vacation_id")
+    private Vacation vacation;
+
+    @ManyToMany
+    @JoinTable(
+            name = "excursion_cartitem",
+            joinColumns = @JoinColumn(name = "cart_item_id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "excursion_id", nullable = false)
+    )
+    private Set<Excursion> excursions;
 
 }

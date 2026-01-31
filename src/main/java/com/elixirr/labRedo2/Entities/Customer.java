@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "customers")
@@ -45,5 +46,18 @@ public class Customer {
     @UpdateTimestamp
     private Date last_update;
 
+    //DB Relationships
+
+    @ManyToOne
+    @JoinColumn(name = "division_id", nullable = false)
+    private Division division;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    private Set<Cart> carts;
+
+    //Methods
+    public void add(Cart cart) {
+       carts.add(cart);
+    }
 
 }

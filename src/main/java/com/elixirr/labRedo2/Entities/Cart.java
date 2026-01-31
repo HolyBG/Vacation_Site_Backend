@@ -9,6 +9,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "carts")
@@ -43,5 +44,18 @@ public class Cart {
     @Column(name = "last_update")
     @UpdateTimestamp
     private Date last_update;
+
+    //DB Relationships
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
+    private Set<CartItem> cartItems;
+
+    //Methods
+    public void add(CartItem item) {
+        this.cartItems.add(item);
+    }
 
 }

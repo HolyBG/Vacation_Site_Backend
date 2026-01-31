@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "countries")
@@ -33,5 +34,10 @@ public class Country {
     @Column(name = "last_update")
     @UpdateTimestamp
     private Date last_update;
+
+    // DB Relationships
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "country")
+    private Set<Division> division;
+
 
 }
