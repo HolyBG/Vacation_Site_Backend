@@ -51,11 +51,11 @@ public class Cart {
     private Customer customer;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
-    private Set<CartItem> cartItem;
+    private Set<CartItem> cartItems;
 
     //Methods
     public void add(CartItem item) {
-       this.cartItem.add(item);
+       this.cartItems.add(item);
     }
 
 }
