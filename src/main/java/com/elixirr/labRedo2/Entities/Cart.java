@@ -54,8 +54,8 @@ public class Cart {
     private Set<CartItem> cartItem;
 
     //Methods
-    //public void add(CartItem item) {
-    //    this.cartItems.add(item);
-    //}
+    public void add(CartItem item) {
+       this.cartItem.add(item);
+    }
 
 }
