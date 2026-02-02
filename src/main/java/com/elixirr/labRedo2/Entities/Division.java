@@ -23,10 +23,10 @@ public class Division {
     @Column(name = "division_id", nullable = false)
     private Long id;
 
-    @Column(name = "division")
+    @Column(name = "division", nullable = false)
     private String division_name;
 
-    @Column(name = "create_date")
+    @Column(name = "create_date", updatable = false)
     @CreationTimestamp
     private Date create_date;
 
