@@ -37,7 +37,7 @@ public class Country {
 
     // DB Relationships
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "country")
-    private Set<Division> division;
+    private Set<Division> divisions;
 
 
 }

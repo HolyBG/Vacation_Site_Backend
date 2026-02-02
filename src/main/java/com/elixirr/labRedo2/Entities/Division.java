@@ -45,11 +45,11 @@ public class Division {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "division")
     private Set<Customer> customers;
 
-    /*Methods
+    //Methods
     public void setCountry(Country country) {
         setCountry_id(country.getId());
         this.country = country;
     }
-    */
+
 
 }
