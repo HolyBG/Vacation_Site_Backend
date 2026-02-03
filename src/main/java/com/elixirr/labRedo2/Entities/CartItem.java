@@ -23,7 +23,7 @@ public class CartItem {
     @Column(name = "cart_item_id", nullable = false)
     private Long id;
 
-    @Column(name = "create_date")
+    @Column(name = "create_date", updatable = false)
     @CreationTimestamp
     private Date create_date;
 
@@ -38,7 +38,7 @@ public class CartItem {
     private Cart cart;
 
     @ManyToOne
-    @JoinColumn(name = "vacation_id")
+    @JoinColumn(name = "vacation_id", nullable = false)
     private Vacation vacation;
 
     @ManyToMany

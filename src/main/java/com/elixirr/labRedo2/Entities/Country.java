@@ -36,7 +36,7 @@ public class Country {
     private Date last_update;
 
     // DB Relationships
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "country")
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL, mappedBy = "country")
     private Set<Division> divisions;
 
 

@@ -34,12 +34,12 @@ public class Division {
     @UpdateTimestamp
     private Date last_update;
 
-    @Column(name = "country_id", nullable = false, insertable = false, updatable = false)
+    @Column(name = "country_id", nullable = false)
     private Long country_id;
 
     // DB Relationships
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "country_id")
+    @JoinColumn(name = "country_id", nullable = false, insertable = false, updatable = false)
     private Country country;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "division")

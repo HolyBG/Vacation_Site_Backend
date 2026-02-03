@@ -37,7 +37,6 @@ public class CheckoutServiceImpl implements CheckoutService{
 
         //Generate the Tracking Number
         String orderTrackingNumber = generateOrderTrackingNumber();
-        cart.setOrderTrackingNumber(orderTrackingNumber);
 
         //populate the cart with the cart items
         Set<CartItem> cartItems = purchase.getCartItems();
@@ -47,6 +46,7 @@ public class CheckoutServiceImpl implements CheckoutService{
         });
 
         //change the cart status to ordered
+        cart.setOrderTrackingNumber(orderTrackingNumber);
         cart.setStatus(StatusType.ordered);
         customer.add(cart);
 
